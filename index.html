@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Neko — Floorplan Analyzer (Demo)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><img src="assets/logo.png" alt="Neko" class="logo"/> <span class="brand-name">Neko</span></div>
+    <nav class="nav">
+      <a href="#" class="btn ghost">Docs</a>
+      <a href="#" class="btn">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-left">
+        <h1>Neko — Floorplan & Blueprint Analyzer</h1>
+        <p class="lead">Upload a floorplan image and let Neko analyze rooms, doors, and areas — simulated for demo purposes.</p>
+
+        <div class="uploader">
+          <label class="file-drop" id="fileDrop">
+            <input type="file" id="fileInput" accept="image/*">
+            <div class="drop-text">Drag & drop a floorplan, or click to choose</div>
+            <button id="useSample" class="btn">Use sample floorplan</button>
+          </label>
+        </div>
+
+        <div class="progress-area" id="progressArea" hidden>
+          <div class="progress-label">Uploading & analyzing</div>
+          <div class="progress-bar"><div id="progressFill"></div></div>
+          <div class="analyze-msg">Neko is thinking<span id="dots">.</span></div>
+        </div>
+
+        <div class="results-summary" id="summary" hidden>
+          <h3>Analysis Summary</h3>
+          <ul id="summaryList"></ul>
+          <button id="resetBtn" class="btn ghost">Run again</button>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="viewer-card">
+          <div class="viewer-header">Floorplan Viewer</div>
+          <div class="viewer-canvas-wrap">
+            <canvas id="floorCanvas" width="900" height="600"></canvas>
+            <img id="floorImage" src="assets/floorplan.png" alt="sample floorplan" hidden>
+          </div>
+          <div class="overlay-legend">
+            <div class="legend-item"><span class="swatch swatch-room"></span> Rooms</div>
+            <div class="legend-item"><span class="swatch swatch-door"></span> Doors</div>
+            <div class="legend-item"><span class="swatch swatch-window"></span> Windows</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="dataPanel">
+      <h2>Extracted Data</h2>
+      <div class="data-grid" id="dataGrid">
+        <!-- Filled by JS -->
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Made with ❤️ by Neko — Demo only, not a production product.</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
